@@ -1,31 +1,35 @@
 {
-	"name": "image-resizer-2",
-	"version": "1.0.0",
-	"private": true,
-	"scripts": {
-		"deploy:dev": "wrangler deploy --env development",
-		"deploy:staging": "wrangler deploy --env staging",
-		"deploy:prod": "wrangler deploy --env production",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"lint": "eslint src/**/*.ts",
-		"typecheck": "tsc --noEmit",
-		"build": "node scripts/generate-browser-support.js && npx esbuild src/index.ts --bundle --format=esm --outfile=dist/index.js",
-		"cf-typegen": "wrangler types",
-		"update-browser-support": "node scripts/generate-browser-support.js"
-	},
-	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.7.5",
-		"@mdn/browser-compat-data": "^5.7.5",
-		"@typescript-eslint/eslint-plugin": "^7.4.0",
-		"@typescript-eslint/parser": "^7.4.0",
-		"caniuse-db": "^1.0.30001706",
-		"esbuild": "^0.25.1",
-		"eslint": "^8.57.0",
-		"typescript": "^5.5.2",
-		"vitest": "~3.0.7",
-		"wrangler": "^4.4.0"
-	}
+  "name": "image-resizer-2",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy:dev": "wrangler deploy --env development",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:prod": "wrangler deploy --env production",
+    "dev": "node init && wrangler dev",
+    "start": "node init && wrangler dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/**/*.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "node init && node scripts/generate-browser-support.js && npx esbuild src/index.ts --bundle --format=esm --outfile=dist/index.js",
+    "cf-typegen": "wrangler types",
+    "update-browser-support": "node scripts/generate-browser-support.js"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.7.5",
+    "@mdn/browser-compat-data": "^5.7.5",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "caniuse-db": "^1.0.30001706",
+    "esbuild": "^0.25.1",
+    "eslint": "^8.57.0",
+    "typescript": "^5.5.2",
+    "vitest": "~3.0.7",
+    "wrangler": "^4.4.0"
+  },
+  "dependencies": {
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0"
+  }
 }
